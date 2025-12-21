@@ -1,0 +1,104 @@
+body {
+    background: url('background-image.jpg') no-repeat center center fixed;
+    background-size: cover; 
+    font-family: Arial, sans-serif;
+    margin:0;
+    color: #ebd9d9;
+    background-color: #efe4e4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(77, 4, 20, 0.684);
+    color: white;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+main {
+    margin: 20px auto;
+    max-width: 800px; 
+    width: 90%; 
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(94, 80, 80, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+p {
+    color:#ddd
+}
+
+section {
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: rgba(153, 6, 38, 0.684);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: rgb(64, 2, 15);
+}
+
+.hidden {
+    display: none;
+}
+
+#matrixContainer {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+    width: 100%; 
+}
+
+th, td {
+    border: 1px solid #060202;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #181a18;
+    color: rgb(251, 245, 245);
+}
+
+td {
+    background-color: #171515;
+}
