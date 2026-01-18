@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LDU Decomposition Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>LDU Decomposition Visualizer</h1>
+            <p class="subtitle">Interactive step-by-step matrix factorization</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="card input-section">
+                <h2>Matrix Input</h2>
+                <div class="matrix-size-control">
+                    <label for="matrixSize">Matrix Size (N×N):</label>
+                    <input type="number" id="matrixSize" min="2" max="10" value="3">
+                    <button id="generateBtn" class="btn btn-primary">Generate Matrix</button>
+                </div>
+                
+                <div id="matrixInputContainer" class="matrix-input-container"></div>
+                
+                <button id="decomposeBtn" class="btn btn-success hidden">Decompose Matrix</button>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="card results-section hidden">
+                <h2>Decomposition Results</h2>
+                
+                <!-- Final Matrices -->
+                <div class="matrices-display">
+                    <div class="matrix-card">
+                        <h3>L (Lower Triangular)</h3>
+                        <div id="LMatrix" class="matrix-display"></div>
+                    </div>
+                    <div class="matrix-card">
+                        <h3>D (Diagonal)</h3>
+                        <div id="DMatrix" class="matrix-display"></div>
+                    </div>
+                    <div class="matrix-card">
+                        <h3>U (Upper Triangular)</h3>
+                        <div id="UMatrix" class="matrix-display"></div>
+                    </div>
+                </div>
+
+                <!-- Step-by-Step Visualization -->
+                <div class="steps-section">
+                    <h3>Step-by-Step Visualization</h3>
+                    
+                    <!-- Step Navigation -->
+                    <div class="step-controls">
+                        <button id="prevStepBtn" class="btn btn-secondary">◀ Previous</button>
+                        <button id="autoPlayBtn" class="btn btn-info">▶ Auto-Play</button>
+                        <button id="nextStepBtn" class="btn btn-secondary">Next ▶</button>
+                    </div>
+                    
+                    <!-- Current Step Display -->
+                    <div class="current-step">
+                        <div class="step-header">
+                            <span id="stepNumber" class="step-number">Step 0</span>
+                            <span id="stepDescription" class="step-description">Click 'Decompose Matrix' to begin</span>
+                        </div>
+                        
+                        <!-- Step Matrices -->
+                        <div class="step-matrices">
+                            <div class="matrix-card-small">
+                                <h4>L</h4>
+                                <div id="stepLMatrix" class="matrix-display"></div>
+                            </div>
+                            <div class="matrix-card-small">
+                                <h4>D</h4>
+                                <div id="stepDMatrix" class="matrix-display"></div>
+                            </div>
+                            <div class="matrix-card-small">
+                                <h4>U</h4>
+                                <div id="stepUMatrix" class="matrix-display"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step Timeline -->
+                    <div class="step-timeline">
+                        <h4>Step Timeline</h4>
+                        <div id="stepTimeline" class="timeline-list"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error Display -->
+            <div id="errorMessage" class="error-message hidden"></div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
