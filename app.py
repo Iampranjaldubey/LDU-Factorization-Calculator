@@ -104,11 +104,13 @@ def ldu_decomposition(A):
     
     return L, D, U, steps
 
-
 @app.route('/')
-def index():
-    """Render the main page"""
-    return render_template('index.html')
+def landing():
+    return render_template('landing/index.html')
+
+@app.route('/ldu')
+def ldu():
+    return render_template('ldu-calculator/index.html')
 
 
 @app.route('/decompose', methods=['POST'])
