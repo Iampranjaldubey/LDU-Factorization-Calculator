@@ -1,121 +1,223 @@
-# LDU Decomposition Visualizer
+# 🧮 MathLab – LDU Decomposition Visualizer
 
-An interactive, educational web application that performs LDU (Lower-Diagonal-Upper) matrix decomposition with step-by-step visualization.
+An interactive, educational web application for performing **LDU (Lower-Diagonal-Upper) matrix decomposition** with step-by-step visualization.
 
-## Features
+Built as part of **MathLab**, a modern platform for exploring linear algebra concepts through interactive tools.
 
-- **Manual LDU Decomposition**: Performs LDU decomposition algorithm manually (no NumPy built-in functions)
-- **Step-by-Step Visualization**: See each step of the decomposition process
-- **Interactive Timeline**: Navigate through steps with Previous/Next buttons
-- **Auto-Play Animation**: Automatically cycle through steps
-- **Modern UI**: Clean, responsive design with smooth animations
-- **Matrix Size**: Support for 2×2 to 10×10 matrices
+---
 
-## What is LDU Decomposition?
+## 🚀 Live Workflow
 
-LDU decomposition factors a square matrix **A** into three matrices:
+```
+Landing Page → Select Tool → LDU Calculator → Step-by-Step Visualization
+```
 
-**A = L × D × U**
+---
+
+## ✨ Features
+
+### 🔹 Core Functionality
+
+* **Manual LDU Decomposition**
+
+  * Fully implemented algorithm (no built-in decomposition functions)
+* **Step-by-Step Visualization**
+
+  * Observe each transformation in the matrix
+* **Interactive Timeline**
+
+  * Navigate using Previous / Next controls
+* **Auto-Play Mode**
+
+  * Animate the decomposition process
+
+---
+
+### 🎨 User Experience
+
+* Modern **glassmorphism UI**
+* Smooth animations and transitions
+* Responsive design (desktop + mobile)
+* Interactive landing page with tool navigation
+
+---
+
+### 📐 Matrix Support
+
+* Matrix sizes from **2×2 up to 10×10**
+* Dynamic grid input system
+
+---
+
+## 🧠 What is LDU Decomposition?
+
+LDU decomposition factors a square matrix **A** into:
+
+```
+A = L × D × U
+```
 
 Where:
-- **L**: Lower triangular matrix with 1s on the diagonal (stores multipliers)
-- **D**: Diagonal matrix (contains pivot values)
-- **U**: Upper triangular matrix with 1s on the diagonal (normalized upper triangular)
 
-## Installation
+* **L (Lower Triangular Matrix)**
+  Contains elimination multipliers (diagonal = 1)
+
+* **D (Diagonal Matrix)**
+  Stores pivot values
+
+* **U (Upper Triangular Matrix)**
+  Normalized so diagonal elements are 1
+
+---
+
+## ⚙️ Tech Stack
+
+| Layer       | Technology                        |
+| ----------- | --------------------------------- |
+| Backend     | Python, Flask                     |
+| Frontend    | HTML5, CSS3, JavaScript (Vanilla) |
+| Math Engine | NumPy (array handling only)       |
+| UI Design   | Custom animations, glassmorphism  |
+
+---
+
+## 📁 Project Structure
+
+```
+project/
+│
+├── app.py
+│
+├── templates/
+│   ├── landing/
+│   │   └── index.html        # Landing page (entry point)
+│   ├── calculator/
+│       └── index.html        # LDU calculator UI
+│
+├── static/
+│   ├── landing/
+│   │   ├── style.css
+│   │   └── script.js
+│   ├── calculator/
+│       ├── style.css
+│       └── script.js
+│
+└── README.md
+```
+
+---
+
+## 🛠️ Installation & Setup
 
 ### Prerequisites
 
-- Python 3.7 or higher
-- pip (Python package manager)
+* Python 3.7+
+* pip
 
-### Setup Steps
+---
 
-1. **Install dependencies**:
-   ```bash
-   pip install flask numpy
-   ```
+### 1️⃣ Install dependencies
 
-2. **Run the application**:
-   ```bash
-   cd ldu_app
-   python app.py
-   ```
-
-3. **Open your browser**:
-   Navigate to `http://localhost:5000`
-
-## Project Structure
-
-```
-ldu_app/
-├── app.py                 # Flask backend with LDU decomposition algorithm
-├── templates/
-│   └── index.html        # Main HTML template
-├── static/
-│   ├── style.css         # Modern CSS styling
-│   └── script.js         # Frontend JavaScript logic
-└── README.md             # This file
+```bash
+pip install flask numpy
 ```
 
-## How to Use
+---
 
-1. **Enter Matrix Size**: Select the size of your matrix (N×N, where N is between 2 and 10)
+### 2️⃣ Run the application
 
-2. **Generate Matrix**: Click "Generate Matrix" to create an N×N input grid
-
-3. **Enter Values**: Fill in the matrix values (default is an identity-like matrix)
-
-4. **Decompose**: Click "Decompose Matrix" to perform LDU decomposition
-
-5. **Explore Steps**: 
-   - Use "Previous" and "Next" buttons to navigate through steps
-   - Click "Auto-Play" to automatically cycle through steps
-   - Click on any step in the timeline to jump to that step
-
-## Algorithm Details
-
-The LDU decomposition is performed without pivoting:
-
-1. **Forward Elimination**: Eliminate entries below the diagonal to create an upper triangular matrix
-2. **Store Multipliers**: Save elimination multipliers in the L matrix
-3. **Extract Diagonals**: Store pivot values in the D matrix
-4. **Normalize U**: Divide rows of U by their diagonal elements to get 1s on the diagonal
-
-### Limitations
-
-- **No Pivoting**: The algorithm doesn't handle zero pivots. If a zero pivot is encountered, an error will be shown.
-- **Matrix Size**: Limited to 2×2 through 10×10 matrices for optimal performance and visualization.
-
-## Example
-
-For a 3×3 matrix:
-
-```
-A = [[4, 3, 2],
-     [2, 1, 1],
-     [1, 2, 1]]
+```bash
+python app.py
 ```
 
-The decomposition produces:
-- **L**: Lower triangular matrix with multipliers
-- **D**: Diagonal matrix with pivot values
-- **U**: Upper triangular matrix normalized to have 1s on diagonal
+---
 
-## Technologies Used
+### 3️⃣ Open in browser
 
-- **Backend**: Python, Flask, NumPy (for array storage only)
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript (ES6)
-- **Deployment**: Can be run locally or deployed to platforms like Render, Railway, or Heroku
+```
+http://127.0.0.1:5000/
+```
 
-## License
+---
 
-This project is open source and available for educational purposes.
+## 🧑‍💻 How to Use
 
-## Future Enhancements
+1. Open the **landing page**
+2. Click **"Open LDU Decomposition Tool"**
+3. Select matrix size (2–10)
+4. Enter matrix values
+5. Click **Decompose**
+6. Explore steps:
 
-- LaTeX math rendering for better mathematical notation
-- Gaussian elimination animation
-- Export PDF step reports
-- Pivoting support for better numerical stability
-- Larger matrix support with performance optimizations
+   * Previous / Next buttons
+   * Auto-play animation
+   * Timeline navigation
+
+---
+
+## ⚙️ Algorithm Overview
+
+The implementation follows a **manual decomposition pipeline**:
+
+1. **Forward Elimination**
+
+   * Convert matrix into upper triangular form
+
+2. **Store Multipliers**
+
+   * Save elimination factors in **L**
+
+3. **Extract Diagonal**
+
+   * Store pivot elements in **D**
+
+4. **Normalize U**
+
+   * Scale rows so diagonal becomes 1
+
+---
+
+## ⚠️ Limitations
+
+* No pivoting (fails on zero pivots)
+* Matrix size limited to 10×10 for performance
+* Numerical stability not optimized
+
+---
+
+## 🔮 Future Enhancements
+
+* ✅ Partial / full pivoting support
+* 📊 Gaussian elimination visualization
+* 📄 Export step-by-step results as PDF
+* 🧾 LaTeX rendering for equations
+* ⚡ Performance optimization for larger matrices
+* 🌐 Full deployment with public access
+
+---
+
+## 🎯 Key Highlights (Resume Points)
+
+* Designed and implemented **custom LDU decomposition algorithm**
+* Built a **full-stack Flask application** with structured routing
+* Developed **interactive step visualization system**
+* Created a **modern UI with animation-driven UX**
+* Applied **linear algebra concepts to real-world visualization**
+
+---
+
+## 📜 License
+
+Open-source project for educational and demonstration purposes.
+
+---
+
+## 👨‍💻 Author
+
+**Pranjal Dubey**
+B.Tech Computer Science
+Sitare University
+
+---
+
+💡 *This project is part of a broader vision to build an interactive mathematics learning platform (MathLab).*
