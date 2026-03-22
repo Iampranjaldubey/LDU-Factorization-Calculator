@@ -7,7 +7,7 @@ from flask import Flask, render_template, request, jsonify
 import numpy as np
 import copy
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', template_folder='templates')
 
 def ldu_decomposition(A):
     """
